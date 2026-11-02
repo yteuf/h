@@ -1,165 +1,702 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" class="dark scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> GUJRATI TRADER - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARISH TRADING ACADEMY | Learn Professional Stock & Options Analysis</title>
+    
+    <!-- Meta Tags for SEO & Meta Ads Compliance -->
+    <meta name="description" content="Join Harish Trading Academy for daily educational stock market analysis, Nifty & Bank Nifty chart breakdowns, and risk management learning. 100% Free Educational Telegram Channel.">
+    <meta name="robots" content="index, follow">
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#070a12',
+                            900: '#0A0E1A',
+                            800: '#111827',
+                            700: '#1F2937',
+                            600: '#374151',
+                        },
+                        gold: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        emerald: {
+                            400: '#34D399',
+                            500: '#10B981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.2s infinite',
+                        'ticker': 'ticker 28s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(16, 185, 129, 0.4), 0 0 35px rgba(16, 185, 129, 0.2)' },
+                            '50%': { boxShadow: '0 0 30px rgba(16, 185, 129, 0.8), 0 0 60px rgba(16, 185, 129, 0.4)' },
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-  }
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
-  }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0E1A;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+        /* Glassmorphism utilities */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
-  }
+        .glass-card-gold {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
 
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-  }
+        /* Custom glowing button gradient */
+        .btn-gradient {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+            transform: translateY(-2px);
+        }
 
-  .feature-item:last-child { border-bottom: none; }
+        /* Grid Background Pattern */
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
 
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
-  }
-
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-  }
-
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
-  }
-
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
-  }
-
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
-  }
-</style>
+        /* Animated Candlestick Canvas Container */
+        #chartCanvas {
+            width: 100%;
+            height: 230px;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-grid-pattern antialiased text-slate-100 flex flex-col min-h-screen selection:bg-emerald-500 selection:text-white">
 
-<div class="card">
-  <img src="https://i.ibb.co/GQYGXHF4/In-Shot-20260927-223648191.jpg" alt=" GUJRATI TRADER" class="profile-img">
+    <!-- LIVE MARKET TICKER HEADER -->
+    <div class="bg-navy-950 border-b border-slate-800 text-xs py-2 overflow-hidden whitespace-nowrap z-50">
+        <div class="inline-flex animate-ticker space-x-8 font-mono">
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> NIFTY 50: 24,380.45 <span class="text-emerald-500 ml-1 font-sans">(+0.85%)</span></span>
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> BANK NIFTY: 52,140.20 <span class="text-emerald-500 ml-1 font-sans">(+1.12%)</span></span>
+            <span class="inline-flex items-center text-rose-400"><i class="fa-solid font-bold fa-caret-down mr-1"></i> FIN NIFTY: 23,610.10 <span class="text-rose-500 ml-1 font-sans">(-0.15%)</span></span>
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> INDIA VIX: 13.42 <span class="text-emerald-500 ml-1 font-sans">(-4.20%)</span></span>
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> RELIANCE: 2,980.00 <span class="text-emerald-500 ml-1 font-sans">(+1.45%)</span></span>
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> HDFC BANK: 1,650.30 <span class="text-emerald-500 ml-1 font-sans">(+0.90%)</span></span>
+            <!-- Duplicate for seamless ticker loop -->
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> NIFTY 50: 24,380.45 <span class="text-emerald-500 ml-1 font-sans">(+0.85%)</span></span>
+            <span class="inline-flex items-center text-emerald-400"><i class="fa-solid font-bold fa-caret-up mr-1"></i> BANK NIFTY: 52,140.20 <span class="text-emerald-500 ml-1 font-sans">(+1.12%)</span></span>
+            <span class="inline-flex items-center text-rose-400"><i class="fa-solid font-bold fa-caret-down mr-1"></i> FIN NIFTY: 23,610.10 <span class="text-rose-500 ml-1 font-sans">(-0.15%)</span></span>
+        </div>
+    </div>
 
-  <h1> GUJRATI TRADER</h1>
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3.5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo & Name -->
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <img src="https://iili.io/n4AX6Je.md.jpg" 
+                         alt="Harish Trading Academy Logo" 
+                         onerror="this.src='https://placehold.co/100x100/1e2942/ffffff?text=HTA'" 
+                         class="w-11 h-11 rounded-full object-cover border-2 border-gold-500/80 shadow-lg shadow-gold-500/10">
+                    <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-navy-900 rounded-full"></span>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-base md:text-lg tracking-tight text-white flex items-center gap-1.5">
+                        HARISH TRADING ACADEMY
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-xs" title="Verified Educational Academy"></i>
+                    </h1>
+                    <p class="text-[11px] text-slate-400 font-medium">Educational Market Analysis & Price Action</p>
+                </div>
+            </div>
 
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
-  </div>
+            <!-- Live Status Badge & Header CTA -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2 bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Free Educational Channel</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+    <!-- HERO SECTION -->
+    <section class="relative pt-8 pb-16 md:pt-14 md:pb-24 px-4 overflow-hidden">
+        <!-- Ambient Radial Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <a href="https://t.me/+mc6hSYTJFoU0MmRl" class="telegram-btn">JOIN TELEGRAM</a>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
 
-  <p class="hindi-quote">     ,     </p>
+            <!-- Meta Ads Compliant Educational Badge Header -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-800 border border-slate-700 text-xs text-amber-400 font-medium mb-6 shadow-md">
+                <i class="fa-solid fa-shield-halved text-gold-400"></i> 100% Educational Community • No Profit Commitments • Learn Discipline
+            </div>
 
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
-  </div>
+            <!-- Main Headline -->
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-5">
+                Master Stock Market Analysis & <br class="hidden sm:inline">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-gold-400">
+                    Option Buying Price Action
+                </span>
+            </h2>
 
-  <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
-  </div>
-</div>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2552096918611818');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2552096918611818&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+            <!-- Subheadline -->
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+                Learn daily Nifty & Bank Nifty support-resistance levels, technical chart setups, and capital protection strategies from experienced market analysts.
+            </p>
+
+            <!-- PRIMARY TELEGRAM CTA BUTTON -->
+            <div class="max-w-md mx-auto mb-10">
+                <a href="https://t.me/+li8jyrDhDzY4MmQ9" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-gradient animate-pulse-glow w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl font-extrabold text-lg text-white shadow-2xl tracking-wide group">
+                    <i class="fa-brands fa-telegram text-2xl text-white group-hover:scale-110 transition-transform"></i>
+                    <span>JOIN FREE TELEGRAM CHANNEL</span>
+                    <i class="fa-solid fa-arrow-right text-sm opacity-80 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <p class="text-xs text-slate-400 mt-3 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock text-slate-500"></i> 100% Free Access • Educational Updates • Join 50,000+ Traders
+                </p>
+            </div>
+
+            <!-- TRUST & PROOF BADGES ROW -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto pt-6 border-t border-slate-800">
+                <div class="glass-card p-3.5 rounded-xl text-center">
+                    <div class="text-lg md:text-xl font-bold text-emerald-400 font-mono">50,000+</div>
+                    <div class="text-[11px] text-slate-400">Telegram Learners</div>
+                </div>
+                <div class="glass-card p-3.5 rounded-xl text-center">
+                    <div class="text-lg md:text-xl font-bold text-gold-400 font-mono">100% Free</div>
+                    <div class="text-[11px] text-slate-400">Educational Charts</div>
+                </div>
+                <div class="glass-card p-3.5 rounded-xl text-center">
+                    <div class="text-lg md:text-xl font-bold text-emerald-400 font-mono">Daily</div>
+                    <div class="text-[11px] text-slate-400">Pre-Market Analysis</div>
+                </div>
+                <div class="glass-card p-3.5 rounded-xl text-center">
+                    <div class="text-lg md:text-xl font-bold text-gold-400 font-mono">4.9 ★</div>
+                    <div class="text-[11px] text-slate-400">Community Rating</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TRADER CHART BREAKDOWN SECTION (Interactive Candlestick Visualizer) -->
+    <section class="py-12 bg-navy-800/60 border-y border-slate-800 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">TECHNICAL CHART BREAKDOWNS</h3>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-white">How We Study Price Action Live</h4>
+                <p class="text-sm text-slate-400 mt-2">Before every market session, we map out key breakout levels, trendlines, and risk-to-reward ratios inside our Telegram channel.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Chart Simulator Card -->
+                <div class="lg:col-span-7 glass-card p-4 md:p-6 rounded-2xl relative">
+                    <!-- Header Bar of Chart -->
+                    <div class="flex items-center justify-between border-b border-slate-700/60 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            <span class="text-xs font-mono font-semibold text-slate-300 ml-2">BANKNIFTY_5MIN_BREAKOUT.PNG</span>
+                        </div>
+                        <span class="text-[11px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded">Bullish Breakdown Study</span>
+                    </div>
+
+                    <!-- Canvas Animation -->
+                    <div class="relative bg-navy-950 rounded-xl p-2 border border-slate-800">
+                        <canvas id="chartCanvas"></canvas>
+                        
+                        <!-- Overlay Callout Tag -->
+                        <div class="absolute bottom-6 right-6 glass-card-gold p-3 rounded-lg border border-gold-500/40 shadow-xl max-w-xs">
+                            <div class="flex items-center space-x-2 text-gold-400 text-xs font-bold">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Risk : Reward = 1 : 3</span>
+                            </div>
+                            <p class="text-[11px] text-slate-300 mt-1">Strict Stop-Loss Discipline & Paper Trading Focus</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex justify-between items-center text-xs text-slate-400 font-mono">
+                        <span><i class="fa-solid fa-chart-line text-emerald-400 mr-1"></i> Live Price Action Learning</span>
+                        <span>Updated: Morning Trading Session</span>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights List -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <div class="glass-card p-4 rounded-xl flex items-start space-x-4 border-l-4 border-l-emerald-500">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+                            <i class="fa-solid fa-layer-group text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-base font-bold text-white">Daily Pre-Market Reports</h5>
+                            <p class="text-xs text-slate-300 mt-1">Get key levels for Nifty & Bank Nifty before 9:00 AM every trading day.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl flex items-start space-x-4 border-l-4 border-l-gold-500">
+                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 font-bold shrink-0">
+                            <i class="fa-solid fa-shield-virus text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-base font-bold text-white">Capital & Risk Management</h5>
+                            <p class="text-xs text-slate-300 mt-1">Learn how to protect your capital with strict risk management & position sizing.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl flex items-start space-x-4 border-l-4 border-l-emerald-500">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+                            <i class="fa-solid fa-lightbulb text-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-base font-bold text-white">Live Educational Charts</h5>
+                            <p class="text-xs text-slate-300 mt-1">Real-time charts posted with logical reasonings for buy/sell setups.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CURRICULUM / WHAT YOU WILL LEARN -->
+    <section class="py-14 px-4 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h3 class="text-xs font-bold text-gold-400 uppercase tracking-widest mb-2">EDUCATIONAL MODULES</h3>
+            <h4 class="text-2xl md:text-3xl font-extrabold text-white">What You Learn Inside The Community</h4>
+            <p class="text-sm text-slate-400 mt-2">Whether you are a beginner or an intermediate option buyer, our simplified educational framework builds long-term discipline.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/40 transition-all">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
+                    <i class="fa-solid fa-chart-area"></i>
+                </div>
+                <h5 class="text-lg font-bold text-white mb-2">Pure Price Action</h5>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Understand candlestick patterns, support/resistance, trendlines, and false breakout identification without confusing indicator clutter.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl hover:border-gold-500/40 transition-all">
+                <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center text-gold-400 mb-4 text-xl">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h5 class="text-lg font-bold text-white mb-2">Trading Psychology</h5>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Eliminate FOMO (Fear Of Missing Out) and revenge trading. Master patience, emotional control, and systematic execution.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/40 transition-all">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 text-xl">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <h5 class="text-lg font-bold text-white mb-2">Option Buying Dynamics</h5>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Learn momentum setups, option greek basics (Delta & Theta decay), strike price selection, and quick entry-exit rules.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COMMUNITY REVIEWS & FEEDBACK -->
+    <section class="py-12 bg-navy-800/40 border-t border-slate-800 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">STUDENT FEEDBACK</h3>
+                <h4 class="text-2xl md:text-3xl font-extrabold text-white">Verified Community Reviews</h4>
+                <p class="text-sm text-slate-400 mt-2">Real learning experiences shared by members in our Telegram channel.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-5 rounded-xl">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-gold-400">
+                            KS
+                        </div>
+                        <div>
+                            <h6 class="text-sm font-bold text-white flex items-center gap-1">
+                                Karthik Subramanian <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                            </h6>
+                            <p class="text-[11px] text-slate-400">Trader from Bengaluru</p>
+                        </div>
+                    </div>
+                    <div class="text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 italic">
+                        "Harish Sir's morning levels on Nifty are exceptionally clear. The best part is his focus on stop loss & discipline instead of fake promises."
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-emerald-400">
+                            AH
+                        </div>
+                        <div>
+                            <h6 class="text-sm font-bold text-white flex items-center gap-1">
+                                Ananya Hegde <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                            </h6>
+                            <p class="text-[11px] text-slate-400">Option Buyer from Bengaluru</p>
+                        </div>
+                    </div>
+                    <div class="text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 italic">
+                        "I used to overtrade and lose capital every week. After following Harish Trading Academy's chart breakdowns, my risk management has improved drastically!"
+                    </p>
+                </div>
+
+                <div class="glass-card p-5 rounded-xl">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-bold text-gold-400">
+                            VR
+                        </div>
+                        <div>
+                            <h6 class="text-sm font-bold text-white flex items-center gap-1">
+                                Venkatesh Rao <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+                            </h6>
+                            <p class="text-[11px] text-slate-400">Part-Time Trader from Bengaluru</p>
+                        </div>
+                    </div>
+                    <div class="text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 italic">
+                        "Cleanest channel on Telegram. No paid calls, no fake profit screenshots—only pure chart logic, support-resistance zones, and paper trading practice."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
+    <section class="py-14 px-4 max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+            <h3 class="text-xs font-bold text-gold-400 uppercase tracking-widest mb-2">FREQUENTLY ASKED QUESTIONS</h3>
+            <h4 class="text-2xl md:text-3xl font-extrabold text-white">Got Questions? We Have Answers</h4>
+        </div>
+
+        <div class="space-y-4">
+            
+            <div class="glass-card rounded-xl overflow-hidden border border-slate-800">
+                <button onclick="toggleFaq('faq1')" class="w-full text-left p-4 md:p-5 flex justify-between items-center font-semibold text-white focus:outline-none">
+                    <span>Is this Telegram Channel completely free?</span>
+                    <i id="icon-faq1" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                </button>
+                <div id="faq1" class="hidden p-4 md:p-5 pt-0 text-xs md:text-sm text-slate-300 border-t border-slate-800/60 leading-relaxed">
+                    Yes! Joining our official Telegram channel is 100% free. We regularly share educational pre-market analysis, live chart studies, and risk management tips at no cost.
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden border border-slate-800">
+                <button onclick="toggleFaq('faq2')" class="w-full text-left p-4 md:p-5 flex justify-between items-center font-semibold text-white focus:outline-none">
+                    <span>Do you provide investment calls or guaranteed profit tips?</span>
+                    <i id="icon-faq2" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                </button>
+                <div id="faq2" class="hidden p-4 md:p-5 pt-0 text-xs md:text-sm text-slate-300 border-t border-slate-800/60 leading-relaxed">
+                    No. We do NOT provide paid buy/sell tips or guaranteed profit returns. All content shared is strictly for educational, technical analysis, and paper trading learning purposes only.
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden border border-slate-800">
+                <button onclick="toggleFaq('faq3')" class="w-full text-left p-4 md:p-5 flex justify-between items-center font-semibold text-white focus:outline-none">
+                    <span>Is this suitable for beginners in stock market?</span>
+                    <i id="icon-faq3" class="fa-solid fa-chevron-down text-emerald-400 transition-transform"></i>
+                </button>
+                <div id="faq3" class="hidden p-4 md:p-5 pt-0 text-xs md:text-sm text-slate-300 border-t border-slate-800/60 leading-relaxed">
+                    Absolutely! Beginners will learn fundamental concepts like price action, trend identification, risk management, and market discipline from scratch.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="py-16 px-4 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto glass-card-gold p-8 md:p-12 rounded-3xl text-center relative z-10 border border-gold-500/30">
+            <img src="https://iili.io/n4AX6Je.md.jpg" 
+                 alt="Academy Logo" 
+                 onerror="this.src='https://placehold.co/100x100/1e2942/ffffff?text=HTA'" 
+                 class="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-gold-400 shadow-lg">
+            
+            <h3 class="text-2xl md:text-4xl font-extrabold text-white mb-3">
+                Ready to Upgrade Your Stock Market Knowledge?
+            </h3>
+            <p class="text-sm md:text-base text-slate-300 max-w-xl mx-auto">
+                Join 50,000+ passionate traders today. Get daily market educational updates, price action setups, and live technical learning completely free.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH META ADS LEGAL DISCLAIMER & COMPLIANCE -->
+    <footer class="bg-navy-950 border-t border-slate-800 text-slate-400 text-xs py-10 px-4 mt-auto">
+        <div class="max-w-5xl mx-auto space-y-6">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-800 pb-6">
+                <div class="flex items-center space-x-3">
+                    <img src="https://iili.io/n4AX6Je.md.jpg" 
+                         alt="Logo Footer" 
+                         onerror="this.src='https://placehold.co/100x100/1e2942/ffffff?text=HTA'" 
+                         class="w-8 h-8 rounded-full border border-gold-400">
+                    <span class="font-bold text-white tracking-wide text-sm">HARISH TRADING ACADEMY</span>
+                </div>
+                
+                <!-- Modal Trigger Links for Meta Compliance -->
+                <div class="flex items-center space-x-4 text-xs font-medium">
+                    <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacy Policy</button>
+                    <span>•</span>
+                    <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Terms of Service</button>
+                    <span>•</span>
+                    <button onclick="openModal('disclaimerModal')" class="hover:text-emerald-400 transition-colors">Disclaimer</button>
+                </div>
+            </div>
+
+            <!-- MANDATORY LEGAL DISCLAIMERS FOR META ADS APPROVAL -->
+            <div class="space-y-3 text-[11px] leading-relaxed text-slate-400">
+                <p>
+                    <strong class="text-slate-300">Disclaimer & Risk Disclosure:</strong> Trading and investing in the stock market, futures, options, and equity involves significant financial risk. Options buying/selling carries substantial risk of loss and is not suitable for every investor. Past performance is no guarantee or indication of future results. All information shared on this website and in our Telegram channel is strictly for <strong class="text-slate-300">EDUCATIONAL AND PAPER TRADING PURPOSES ONLY</strong>.
+                </p>
+                <p>
+                    <strong class="text-slate-300">Regulatory Disclaimer:</strong> Harish Trading Academy is an independent educational platform. We are NOT registered with SEBI (Securities and Exchange Board of India) as an Investment Advisor or Research Analyst. We do NOT provide guaranteed return schemes, tip services, portfolio management, or financial advice. Members are strongly advised to consult a certified SEBI-registered financial advisor before making any real market investment decisions.
+                </p>
+                <p>
+                    <strong class="text-slate-300">Meta (Facebook/Instagram) Compliance Policy Notice:</strong> This site is not a part of the Facebook website or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta in any way. FACEBOOK is a trademark of META PLATFORMS, Inc.
+                </p>
+            </div>
+
+            <div class="text-center pt-4 text-slate-500 text-[11px] border-t border-slate-800/60">
+                © <script>document.write(new Date().getFullYear())</script> HARISH TRADING ACADEMY. All Rights Reserved. Designed for Educational Trading Excellence.
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div id="privacyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 rounded-2xl border border-slate-700 relative text-xs leading-relaxed">
+            <button onclick="closeModal('privacyModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-white mb-4">Privacy Policy</h3>
+            <div class="space-y-3 text-slate-300">
+                <p>Harish Trading Academy respects your privacy. We do not collect, store, or sell personal user data on this landing page.</p>
+                <p>When you click on our Telegram link, you interact directly with the official Telegram app according to Telegram's privacy terms.</p>
+                <p>We use standard web analytics to measure ad traffic effectiveness for Meta advertising campaigns without harvesting personal identity information.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS OF SERVICE MODAL -->
+    <div id="termsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 rounded-2xl border border-slate-700 relative text-xs leading-relaxed">
+            <button onclick="closeModal('termsModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-white mb-4">Terms of Service</h3>
+            <div class="space-y-3 text-slate-300">
+                <p>By accessing Harish Trading Academy, you acknowledge that all market breakdowns, technical charts, and educational updates are provided for general learning only.</p>
+                <p>We do not guarantee financial profits or assume liability for trading losses incurred by users executing trades in live markets.</p>
+                <p>Always practice proper risk management and consult certified financial advisory professionals.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DISCLAIMER MODAL -->
+    <div id="disclaimerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 rounded-2xl border border-slate-700 relative text-xs leading-relaxed">
+            <button onclick="closeModal('disclaimerModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-gold-400 mb-4">Full Risk & Legal Disclaimer</h3>
+            <div class="space-y-3 text-slate-300">
+                <p>Harish Trading Academy is strictly an educational community for stock market technical analysis and price action learning.</p>
+                <p>We are NOT a SEBI-registered advisor. Derivative trading (Futures & Options) involves high financial risk. Up to 9 out of 10 individual traders in equity futures and options segment incur net losses according to SEBI study data.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY & CANVAS ANIMATION -->
+    <script>
+        // Modal Handlers
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                el.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Animated Candlestick Chart Simulation
+        window.onload = function () {
+            const canvas = document.getElementById('chartCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = 230;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const candles = [
+                { open: 120, high: 135, low: 110, close: 128 },
+                { open: 128, high: 140, low: 122, close: 135 },
+                { open: 135, high: 138, low: 115, close: 118 },
+                { open: 118, high: 125, low: 105, close: 110 },
+                { open: 110, high: 130, low: 108, close: 126 },
+                { open: 126, high: 145, low: 124, close: 142 },
+                { open: 142, high: 155, low: 138, close: 150 },
+                { open: 150, high: 152, low: 136, close: 140 },
+                { open: 140, high: 165, low: 139, close: 162 },
+                { open: 162, high: 180, low: 160, close: 178 },
+                { open: 178, high: 195, low: 175, close: 190 }
+            ];
+
+            let animationStep = 0;
+
+            function drawChart() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const width = canvas.width;
+                const height = canvas.height;
+                const candleWidth = Math.max(8, (width - 60) / candles.length - 8);
+
+                // Horizontal grid lines
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                ctx.lineWidth = 1;
+                for (let i = 1; i <= 4; i++) {
+                    const y = (height / 5) * i;
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(width, y);
+                    ctx.stroke();
+                }
+
+                // Breakout Resistance Line
+                ctx.strokeStyle = 'rgba(245, 158, 11, 0.6)';
+                ctx.setLineDash([5, 5]);
+                ctx.lineWidth = 1.5;
+                const resistanceY = height - 130;
+                ctx.beginPath();
+                ctx.moveTo(0, resistanceY);
+                ctx.lineTo(width, resistanceY);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Resistance text label
+                ctx.fillStyle = '#F59E0B';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.fillText('KEY BREAKOUT ZONE (52,100)', 15, resistanceY - 6);
+
+                // Draw Candlesticks
+                const count = Math.min(candles.length, Math.floor(animationStep));
+                
+                for (let i = 0; i < count; i++) {
+                    const c = candles[i];
+                    const x = 30 + i * (candleWidth + 8);
+                    const isGreen = c.close >= c.open;
+                    const color = isGreen ? '#10B981' : '#F43F5E';
+
+                    // Wick
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(x + candleWidth / 2, height - c.high);
+                    ctx.lineTo(x + candleWidth / 2, height - c.low);
+                    ctx.stroke();
+
+                    // Body
+                    ctx.fillStyle = color;
+                    const bodyTop = height - Math.max(c.open, c.close);
+                    const bodyHeight = Math.max(3, Math.abs(c.open - c.close));
+                    ctx.fillRect(x, bodyTop, candleWidth, bodyHeight);
+                }
+
+                if (animationStep < candles.length) {
+                    animationStep += 0.08;
+                } else {
+                    setTimeout(() => { animationStep = 1; }, 2500);
+                }
+
+                requestAnimationFrame(drawChart);
+            }
+
+            drawChart();
+        };
+    </script>
 </body>
+  
 </html>
